@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despacho de Pedidos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+      <div id="app">
+        <!-- Foto del Negocio -->
+        <div id="businessPhoto">
+            <img src="img/logo.png"Foto del Negocio">
+        </div>
+        <h1>Despacho de Pedidos</h1>
+    <p>¡Bienvenido! Por favor, registre al cliente y seleccione el pedido para generar la factura.</p>
+
+        <!-- Registro de Cliente -->
+        <section id="registerSection">
+            <h2>Registrar Cliente</h2>
+            <form id="registerForm">
+                <label for="clientName">Nombre del Cliente:</label>
+                <input type="text" id="clientName" placeholder="Ingrese su nombre" required>
+                <label for="clientEmail">Correo Electrónico:</label>
+                <input type="email" id="clientEmail" placeholder="Ingrese su correo" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+
+        <!-- Selección de Pedido -->
+        <section id="orderSection" class="hidden">
+            <h2>Seleccionar Pedido</h2>
+            <form id="orderForm">
+                <label for="orderType">Tipo de Pedido:</label>
+                <select id="orderType">
+                    <option value="">Seleccione una opción</option>
+                    <option value="cocktail">Cóctel</option>
+                    <option value="food">Comida</option>
+                </select>
+                <div id="cocktailOptions" class="hidden">
+                    <h3>Cócteles</h3>
+                    <div class="product">
+                        <img src="img/margarita.jpeg"Margarita">
+                        <label><input type="number" value="0" data-price="5" class="order-item"> Margarita ($5)</label>
+                    </div>
+                    <div class="product">
+                        <img src="img/mojito.jpeg"Mojito">
+                        <label><input type="number" value="0" data-price="6" class="order-item"> Mojito ($6)</label>
+                    </div>
+                </div>
+                <div id="foodOptions" class="hidden">
+                    <h3>Comida</h3>
+                    <div class="product">
+                        <img src="img/pizza.png"Pizza">
+                        <label><input type="number" value="0" data-price="5" class="order-item"> Pizza y Refresco ($5)</label>
+                    </div>
+                    <div class="product">
+                        <img src="img/hambur.jpeg"Hamburguesa">
+                        <label><input type="number" value="0" data-price="3" class="order-item"> Hamburguesa ($3)</label>
+                    </div>
+                </div>
+                <button type="submit">Añadir a Factura</button>
+            </form>
+        </section>
+
+        <!-- Factura -->
+        <section id="invoiceSection" class="hidden">
+            <h2>Factura</h2>
+            <p><strong>Cliente:</strong> <span id="invoiceClientName">No registrado</span></p>
+            <p><strong>Hora de Despacho:</strong> <input type="time" id="dispatchTime" value="12:00"></p>
+            <p><strong>Pedidos:</strong> <span id="invoiceItems">Ninguno</span></p>
+            <p><strong>Total:</strong> $<span id="invoiceTotal">0</span></p>
+            <button id="printInvoice">Imprimir Factura</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
